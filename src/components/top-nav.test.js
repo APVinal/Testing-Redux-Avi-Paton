@@ -1,6 +1,7 @@
 import React from 'react';
 import {shallow, mount} from 'enzyme';
 import {TopNav} from './top-nav';
+import {newGame, toggleInfoModal} from '../actions'
 
 describe('<TopNav /> Component',()=>{
     it('Smoke test huzzah',()=>{
@@ -16,7 +17,7 @@ describe('<TopNav /> Component',()=>{
       const callback = jest.fn();
       const wrapper = shallow(<TopNav dispatch={callback} />);
       wrapper.find('.what').first().simulate('click', {preventDefault: () => {}});
-      expect(callback).toHaveBeenCalled();
+      expect(callback).toHaveBeenCalledWith(toggleInfoModal());
     });
     
 })
