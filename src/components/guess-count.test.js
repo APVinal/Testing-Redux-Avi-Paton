@@ -1,6 +1,6 @@
 import React from 'react';
 import {shallow, mount} from 'enzyme';
-import GuessCount from './guess-count';
+import {GuessCount} from './guess-count';
 
 describe('<GuessCount /> Component',()=>{
     it('Smoke test huzzah',()=>{

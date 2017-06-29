@@ -1,27 +1,22 @@
 import React from 'react';
 import {shallow, mount} from 'enzyme';
-import TopNav from './top-nav';
+import {TopNav} from './top-nav';
 
 describe('<TopNav /> Component',()=>{
     it('Smoke test huzzah',()=>{
         shallow(<TopNav />)
     });
-
-    it('Should fire the callback when What? is clicked', ()=> {
+    it("TopNav's onNewGame method is called on click", ()=>{
       const callback = jest.fn();
-      const wrapper = mount(<TopNav poodle={callback} />);
-      const id = 'heyhey';
-      wrapper.find('.what').node.id = id;
-      wrapper.find('.what').simulate('click');
-      expect(callback).toHaveBeenCalledWith(id);
+      const wrapper = shallow(<TopNav dispatch={callback} />);
+      wrapper.find('.new').simulate('click', {preventDefault: () => {}});
+      expect(callback).toHaveBeenCalled();
     });
-
-    it('Should fire the callback when + NewGame is clicked', ()=> {
+    it("TopNav's onInfo method is called on click", ()=>{
       const callback = jest.fn();
-      const wrapper = mount(<TopNav poodle={callback}  />);
-      wrapper.find('.what').simulate('click', {
-        anything() {}
-      });
-      expect(callback).toHaveBeenCalled;
+      const wrapper = shallow(<TopNav dispatch={callback} />);
+      wrapper.find('.what').first().simulate('click', {preventDefault: () => {}});
+      expect(callback).toHaveBeenCalled();
     });
+    
 })

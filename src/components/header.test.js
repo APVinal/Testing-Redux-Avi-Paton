@@ -1,6 +1,6 @@
 import React from 'react';
 import {shallow, mount} from 'enzyme';
-import Header from './header';
+import {Header} from './header';
 
 describe('<Header /> Component',()=>{
     it('Smoke test huzzah',()=>{

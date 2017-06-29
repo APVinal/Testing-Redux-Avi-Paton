@@ -63,5 +63,49 @@ describe('Reducer', () => {
         expect(state.feedback).toEqual('You\'re Ice Cold...');
         expect(state.guesses).toEqual([51]);
     });
+    it('Should return correct feedback when Cold', () => {
+        let dummyState = {
+            guesses: [],
+            feedback: '',
+            correctAnswer: 1,
+            showInfoModal: false
+        };
+        const state = reducer(dummyState, makeGuess(31));
+        expect(state.feedback).toEqual('You\'re Cold...');
+        expect(state.guesses).toEqual([31]);
+    });
+    it('Should return correct feedback when Warm', () => {
+        let dummyState = {
+            guesses: [],
+            feedback: '',
+            correctAnswer: 1,
+            showInfoModal: false
+        };
+        const state = reducer(dummyState, makeGuess(11));
+        expect(state.feedback).toEqual('You\'re Warm');
+        expect(state.guesses).toEqual([11]);
+    });
+    it('Should return correct feedback when Hot', () => {
+        let dummyState = {
+            guesses: [],
+            feedback: '',
+            correctAnswer: 1,
+            showInfoModal: false
+        };
+        const state = reducer(dummyState, makeGuess(2));
+        expect(state.feedback).toEqual('You\'re Hot!');
+        expect(state.guesses).toEqual([2]);
+    });
+    it('Should return correct feedback when correct', () => {
+        let dummyState = {
+            guesses: [],
+            feedback: '',
+            correctAnswer: 1,
+            showInfoModal: false
+        };
+        const state = reducer(dummyState, makeGuess(1));
+        expect(state.feedback).toEqual('You got it!');
+        expect(state.guesses).toEqual([1]);
+    });
 
 })
