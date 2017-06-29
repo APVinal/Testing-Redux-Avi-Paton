@@ -12,7 +12,7 @@ export default function Game(props) {
             <GuessSection />
             <GuessCount />
             <GuessList />
-        </div>
+        </div> 
     );
 };
 
